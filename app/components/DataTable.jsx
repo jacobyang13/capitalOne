@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 // const apiBaseUrl = "http://localhost:3000/api/";
-const apiBaseUrl = "https://hidden-atoll-90934.herokuapp.com/"
+const apiBaseUrl = "https://hidden-atoll-90934.herokuapp.com/api/"
 import request from 'superagent';
 import axios from 'axios';
 
