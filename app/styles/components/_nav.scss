@@ -1,0 +1,29 @@
+.top-bar, .top-bar ul{
+  background-color: #4B9CD3;
+  max-height: 40px;
+}
+
+.top-bar {
+  .menu-text {
+    color: $nav-text-color;
+    margin-left: 1px
+  }
+
+  .menu > .menu-text > a {
+    display: inline;
+    padding: 0;
+  }
+
+  .active-link {
+    font-weight: bold;
+  }
+}
+
+.shift-left{
+    margin-left: -515px;
+    margin-top: 4px;
+
+}
+.small.button-group{
+  margin-top: 9px;
+}
