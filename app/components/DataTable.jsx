@@ -35,12 +35,12 @@ class DataTable extends React.Component {
       //allows data to be parsed before loading components
       setTimeout(function() {
         this.setState({listingsDataTemp: data});
-      }.bind(this), 5000);
+      }.bind(this), 15000);
 
     })
     setTimeout(function() {
       this.getAverage(); this.setState({start: ""});
-    }.bind(this), 10000)
+    }.bind(this), 20000)
 
 
   }
