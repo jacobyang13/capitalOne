@@ -3,16 +3,18 @@
   margin-right:10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .shrink{
   padding: 0px 0px 0px 0px;
   margin-top: 230px;
-  margin-left: 500px;
-  height: 40px;
-  width: 20%;
+  margin-left: 560px;
+  height: 20px;
+  width: 10%;
   text-align: center;
   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  flex: auto;
   position: absolute;
   -webkit-animation: rotation 10s infinite linear;
 }

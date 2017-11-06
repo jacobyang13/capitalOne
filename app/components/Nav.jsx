@@ -6,17 +6,9 @@ export class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: false
     }
   }
-  onSearch(e) {
-    e.preventDefault();
 
-  }
-
-  handleOptionChange = (changeEvent) => {
-    this.setState({selectedOption: changeEvent.target.value});
-  }
   render() {
     return (
       <div className="top-bar">
