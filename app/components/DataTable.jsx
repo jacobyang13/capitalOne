@@ -40,7 +40,7 @@ class DataTable extends React.Component {
     })
     setTimeout(function() {
       this.getAverage();
-    }.bind(this), 8000)
+    }.bind(this), 9000)
     // var price1 =  parseFloat(this.state.BayviewPrice.replace(/[^0-9.-]+/g, ''))
     // this.setState({BayviewPrice: price1})
 
