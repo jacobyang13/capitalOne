@@ -20,7 +20,7 @@ router.get('/getAllListings', function(req,res){
   Papa.parse(fs.createReadStream('./listings.csv'), {
        delimiter: ",",
        header: true,
-
+       dynamicTyping: true,
       //  complete: function(results) {
       //        res.send({"results": results});
       //  }
