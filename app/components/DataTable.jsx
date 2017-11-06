@@ -99,7 +99,7 @@ class DataTable extends React.Component {
     setTimeout(function() {
       this.getAverage();
       this.setState({start: ""});
-    }.bind(this), 5000)
+    }.bind(this), 20000)
 
   }
   getAverage = () => {
