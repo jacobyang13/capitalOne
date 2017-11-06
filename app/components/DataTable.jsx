@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-// const apiBaseUrl = "http://localhost:3000/api/";
-const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
+const apiBaseUrl = "http://localhost:3000/api/";
+// const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
 import request from 'superagent';
 import axios from 'axios';
 import {BarChart} from 'react-easy-chart';
@@ -34,15 +34,14 @@ class DataTable extends React.Component {
       var data = res.body.results.data;
       //allows data to be parsed before loading components
       setTimeout(function() {
-        this.setState({listingsDataTemp: data, start: ""});
+        this.setState({listingsDataTemp: data});
       }.bind(this), 5000);
 
     })
     setTimeout(function() {
-      this.getAverage();
-    }.bind(this), 9000)
-    // var price1 =  parseFloat(this.state.BayviewPrice.replace(/[^0-9.-]+/g, ''))
-    // this.setState({BayviewPrice: price1})
+      this.getAverage(); this.setState({start: ""});
+    }.bind(this), 10000)
+
 
   }
   getAverage = () => {
@@ -84,7 +83,7 @@ class DataTable extends React.Component {
           y: this.state.BernalPrice / this.state.BernalCount
         },
         {
-            x: 'Castro',
+            x: 'China Town',
             y: this.state.ChinaTownP / this.state.ChinaTownC
           }
 
