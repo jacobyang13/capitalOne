@@ -27,20 +27,37 @@ class DataTable extends React.Component {
     };
 
   }
-
+  //
+  // componentDidMount = () => {
+  //   //gets listing.csv data and stores that data in listingsDataTemp
+  //   request.get(apiBaseUrl + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
+  //     var data = res.body.results.data;
+  //     //allows data to be parsed before loading components
+  //     setTimeout(function() {
+  //       this.setState({listingsDataTemp: data});
+  //     }.bind(this), 15000);
+  //
+  //   })
+  //   setTimeout(function() {
+  //     this.getAverage(); this.setState({start: ""});
+  //   }.bind(this), 20000)
+  //
+  //
+  // }
   componentDidMount = () => {
     //gets listing.csv data and stores that data in listingsDataTemp
     request.get(apiBaseUrl + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
       var data = res.body.results.data;
       //allows data to be parsed before loading components
-      setTimeout(function() {
+
         this.setState({listingsDataTemp: data});
-      }.bind(this), 15000);
+
 
     })
     setTimeout(function() {
-      this.getAverage(); this.setState({start: ""});
-    }.bind(this), 20000)
+        this.getAverage(); this.setState({start: ""});
+      }.bind(this), 20000)
+
 
 
   }
