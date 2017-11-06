@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 const apiBaseUrl = "http://localhost:3000/api/";
-// const apiBaseUrl = "http://hidden-atoll-90934.herokuapp.com/api/";
+// const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
 import request from 'superagent';
 import axios from 'axios';
 import {BarChart} from 'react-easy-chart';
+import Logo from 'babel!svg-react!unc.svg';
 
 
 
@@ -33,7 +34,7 @@ componentDidMount = () => {
   })
   var tempData = this.state.listingsDataTemp;
   var BayviewPrice = 10, BayviewCount = 5;
-   tempData.map((list) => {
+   tempData.filter((list) => {
     switch(list.neighbourhood){
       case "Bayview":
         var price = Number(list.price.replace(/[^0-9\.-]+/g,""))
@@ -158,9 +159,12 @@ renderData = () => {
 }
 renderStart = () =>{
   return(
-    <div><h1>
-      LOADING... Please wait about 20 seconds
-    </h1></div>
+    <div>
+      <div className = "shrink">
+        <Logo/>
+        <p1>Loading... Please Wait</p1>
+      </div>
+    </div>
   )
 }
 render() {

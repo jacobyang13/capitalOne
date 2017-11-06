@@ -4,3 +4,24 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.shrink{
+  padding: 0px 0px 0px 0px;
+  margin-top: 230px;
+  margin-left: 500px;
+  height: 40px;
+  width: 20%;
+  text-align: center;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  position: absolute;
+  -webkit-animation: rotation 10s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
