@@ -6,7 +6,7 @@ import request from 'superagent';
 import axios from 'axios';
 import {BarChart} from 'react-easy-chart';
 import Logo from 'babel!svg-react!unc.svg';
-import $ from 'jquery'
+
 
 class DataTable extends React.Component {
   constructor(props) {
