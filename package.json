@@ -51,6 +51,5 @@
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.10.*"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
