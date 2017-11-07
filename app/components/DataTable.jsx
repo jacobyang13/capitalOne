@@ -8,6 +8,7 @@ import NeighbourhoodPrices from 'NeighbourhoodPrices'
 import NeighbourhoodReviews from 'NeighbourhoodReviews'
 import AllReviews from 'AllReviews'
 import SubTable from 'SubTable'
+import PropertyChart from 'PropertyChart'
 import Logo from 'babel!svg-react!unc.svg';
 
 class DataTable extends React.Component {
@@ -31,7 +32,7 @@ class DataTable extends React.Component {
     })
     setTimeout(function() {
       this.setState({start: ""});
-    }.bind(this), 10000)
+    }.bind(this), 20000)
 
   }
 
@@ -46,6 +47,9 @@ class DataTable extends React.Component {
   }
   renderSubTable = () => {
     return( <SubTable data = {this.state.listingsDataTemp}/>)
+  }
+  renderPropertyChart = () => {
+    return(<PropertyChart data = {this.state.listingsDataTemp}/>)
   }
 
   renderData = () => {
@@ -63,6 +67,9 @@ class DataTable extends React.Component {
         </div>
         <div>
           {this.renderAllReviews()}
+        </div>
+        <div>
+          {this.renderPropertyChart()}
         </div>
       </div>
     </div>
