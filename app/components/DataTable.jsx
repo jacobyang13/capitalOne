@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-const apiBaseUrl = "http://localhost:3000/api/";
-// const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
+// const apiBaseUrl = "http://localhost:3000/api/";
+const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
 import request from 'superagent';
 import axios from 'axios';
 import NeighbourhoodPrices from 'NeighbourhoodPrices'
