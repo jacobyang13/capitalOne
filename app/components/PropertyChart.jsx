@@ -13,7 +13,10 @@ export class PropertyChart extends React.Component {
       loft: 0.00,
       other: 0.00,
       bedBreakfast: 0.00,
-      bungalow: 0.00
+      bungalow: 0.00,
+      showToolTip: false,
+      value: 0,
+      key: ""
     }
   }
   componentDidMount = () => {
@@ -58,6 +61,28 @@ export class PropertyChart extends React.Component {
       }
     })
   }
+
+  mouseOverHandler(d, e) {
+    this.setState({
+      showToolTip: true})
+      return(
+      <h1>hidffhfadjlhf;adfjkadjfk;adj;faj;afd</h1>
+      )
+  }
+  mouseOutHandler() {
+   this.setState({showToolTip: false});
+ }
+
+ createTooltip(){
+   if(this.state.showToolTip){
+     return(
+     <h1>hidffhfadjlhf;adfjkadjfk;adj;faj;afd</h1>
+     )
+   }
+ }
+
+
+
   render() {
 
     return (
@@ -86,7 +111,10 @@ export class PropertyChart extends React.Component {
         key: 'Other',
         value: this.state.other
       }
-    ]}/>
+    ]}
+    mouseOverHandler={this.mouseOverHandler.bind(this)}
+    mouseOutHandler={this.mouseOutHandler.bind(this)}
+  />
   </div>
 </div>
   )
