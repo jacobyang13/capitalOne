@@ -10,6 +10,7 @@ var Main = require('Main')
 //Load foundation
 $(document).foundation();
 
+
 // App css
 require('style!css!!sass!applicationStyles');
 

@@ -70,7 +70,7 @@ export class SubTable extends React.Component {
   }
   render() {
     return (
-      <div className="makeSmaller">
+      <div>
         <div>
           <form onSubmit={this.handleSubmit}>
             <input type="text" ref="text" placeholder="Search Neighbourhoods"/>

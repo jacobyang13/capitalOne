@@ -40,7 +40,8 @@ module.exports = {
     modulesDirectories:[
       'node_modules',
       './app/components' ,
-      './app/api'
+      './app/api',
+      './app/data'
     ],
     alias: {
       applicationStyles: 'app/styles/app.scss',
@@ -69,7 +70,9 @@ module.exports = {
   },
   sassLoader: {
     includePaths:[
-      path.resolve(__dirname, './node_modules/foundation-sites/scss')
+      path.resolve(__dirname, './node_modules/foundation-sites/scss'),
+        path.resolve(__dirname, 'node_modules/motion-ui/src'),
+          path.resolve(__dirname, './node_modules/motion-ui/src'),
     ]
   },
   devtool: process.env.NODE_ENV === 'production' ? undefined :'cheap-module-eval-source-map'

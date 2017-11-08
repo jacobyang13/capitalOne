@@ -1,4 +1,5 @@
-var React = require('react');
+import React, {Component} from 'react';
+import ReactDom from 'react-dom';
 var uuid = require('node-uuid');
 var moment = require('moment');
 
@@ -8,7 +9,7 @@ import DataTable from 'DataTable'
 export class Main extends React.Component {
   render() {
     return (
-      <div>
+      <div className = "font">
         <Nav/>
         <div>
           <div>

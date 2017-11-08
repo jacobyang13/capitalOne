@@ -1,4 +1,5 @@
-var React = require('react');
+import React, {Component} from 'react';
+import ReactDom from 'react-dom';
 var {Link, IndexLink} = require('react-router');
 import Logo from 'babel!svg-react!unc.svg';
 
@@ -15,9 +16,7 @@ export class Nav extends React.Component {
         <div className="top-bar-left">
           <ul className="menu">
             <li className= "shrinkS">
-              <div>
                 <Logo/>
-              </div>
             </li>
             <li className="menu-text">
               <div className = "shift-left">Jacob Yang</div>
@@ -31,8 +30,8 @@ export class Nav extends React.Component {
             Capital One Airbnb Challenge
           </li>
         </ul>
-        </div>
       </div>
+    </div>
     )
   }
 }

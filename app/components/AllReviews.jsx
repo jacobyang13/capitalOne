@@ -43,14 +43,17 @@ export class AllReviews extends React.Component {
     }
   render() {
       return(
+        <div className = "">
+          <div className = "">
         <LineChart
-          width={1250}
+          width={1000}
           height={500}
           axes
+          lineColors={['red']}
           dataPoints
           axisLabels={{x: 'All Cancellation Policy', y: 'All Overall Rating'}}
           grid
-          margin={{top: 10, right: 20, bottom: 50, left: 65}}
+          // margin={{top: 10, right: 10, bottom: 10, left: 0}}
           xType={'text'}  interpolate={'cardinal'}
         data={[
           [
@@ -62,7 +65,8 @@ export class AllReviews extends React.Component {
           ]
         ]}
       />
-
+    </div>
+  </div>
       )
     }
 

@@ -272,7 +272,10 @@ export class NeighbourhoodPrices extends React.Component {
     }
   render() {
 
-      return (<BarChart width = {1200} height = {520} colorBars grid axes yDomainRange={[0, 570]} margin={{top: 0, right: 0, bottom: 50, left: 65}} axisLabels={{
+      return (
+        <div className = "grid-x align-center">
+          <div className = "cell">
+            <BarChart width = {1200} height = {520} colorBars grid axes yDomainRange={[0, 570]}  axisLabels={{
         x: 'Neighbourhoods',
         y: 'Average price'
       }} data={[
@@ -370,7 +373,9 @@ export class NeighbourhoodPrices extends React.Component {
       ]}
       mouseOverHandler={this.mouseOverHandler}
       mouseOutHandler={this.mouseOutHandler}
-      mouseMoveHandler={this.mouseMoveHandler}/>)
+      mouseMoveHandler={this.mouseMoveHandler}/>
+    </div>
+  </div>)
     }
 }
 
