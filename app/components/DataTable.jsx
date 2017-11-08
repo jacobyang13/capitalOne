@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-const apiBaseUrl = "http://localhost:3000/api/";
-// const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
+// const apiBaseUrl = "http://localhost:3000/api/";
+const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
 import request from 'superagent';
 import axios from 'axios';
 import NeighbourhoodPrices from 'NeighbourhoodPrices'
@@ -33,7 +33,7 @@ class DataTable extends React.Component {
     //allows data to be rendered and parsed. Loading screen set to 20 seconds
     setTimeout(function() {
       this.setState({start: ""});
-    }.bind(this), 5000)
+    }.bind(this), 20000)
   }
 
   //renders all visulations
