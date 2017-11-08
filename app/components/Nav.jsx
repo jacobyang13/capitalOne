@@ -22,6 +22,7 @@ export class Nav extends React.Component {
               <div className = "shift-left">Jacob Yang</div>
 
             </li>
+          
           </ul>
         </div>
         <div className = "top-bar-right">

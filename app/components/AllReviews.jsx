@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {LineChart} from 'react-easy-chart';
+import ReactTooltip from 'react-tooltip'
 
 export class AllReviews extends React.Component {
   constructor(props) {
@@ -12,7 +13,10 @@ export class AllReviews extends React.Component {
       cancelFlexibleScore: 0,
       cancelStrictCount: 0.00,
       cancelModerateCount: 0,
-      cancelFlexibleCount: 0
+      cancelFlexibleCount: 0,
+      showToolTip: false,
+      y: "",
+      x: ""
     }
   }
   componentDidMount = () =>{
@@ -41,6 +45,21 @@ export class AllReviews extends React.Component {
           }
         })
     }
+    clickHandler(d, e) {
+      this.setState({
+        showToolTip: true,
+          y: d.y,
+          x: d.x})
+    }
+   createTooltip(){
+     if(this.state.showToolTip){
+       return(
+         <div>
+           <a data-tip data-for='click'> The average rating is a {this.state.y} in {this.state.x} </a>
+     </div>
+       )
+     }
+   }
   render() {
       return(
         <div className = "">
@@ -64,8 +83,10 @@ export class AllReviews extends React.Component {
                   x: 'Strict', y: this.state.cancelStrictScore / this.state.cancelStrictCount},
           ]
         ]}
-      />
-    </div>
+        clickHandler = {this.clickHandler.bind(this)}
+  />
+</div>
+{this.createTooltip()}
   </div>
       )
     }

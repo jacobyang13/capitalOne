@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {LineChart} from 'react-easy-chart';
+import ReactTooltip from 'react-tooltip'
 
 export class NeighbourhoodReviews extends React.Component {
   constructor(props) {
@@ -68,7 +69,10 @@ export class NeighbourhoodReviews extends React.Component {
       westPortalR: 0.00,
       westPortalC2: 0.00,
       westernR: 0.00,
-      westernC2: 0.00
+      westernC2: 0.00,
+      showToolTip: false,
+      y: "",
+      x: ""
     }
   }
   componentDidMount = () =>{
@@ -298,6 +302,21 @@ export class NeighbourhoodReviews extends React.Component {
     })
     return;
   }
+  clickHandler(d, e) {
+    this.setState({
+      showToolTip: true,
+        y: d.y,
+        x: d.x})
+  }
+ createTooltip(){
+   if(this.state.showToolTip){
+     return(
+       <div>
+         <a data-tip data-for='click'> The average rating is a {this.state.y} in {this.state.x} </a>
+   </div>
+     )
+   }
+ }
   render() {
     return(
       <div className = "grid-x align-center">
@@ -407,8 +426,10 @@ export class NeighbourhoodReviews extends React.Component {
 
         ]
       ]}
+          clickHandler = {this.clickHandler.bind(this)}
     />
   </div>
+  {this.createTooltip()}
 </div>
     )
   }

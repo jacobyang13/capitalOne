@@ -17,6 +17,7 @@ export class PropertyChart extends React.Component {
       bungalow: 0.00,
       showToolTip: false,
       value: 0,
+      total: 0,
       key: ""
     }
   }
@@ -61,6 +62,8 @@ export class PropertyChart extends React.Component {
 
       }
     })
+        this.setState({total: this.state.house + this.state.apartment + this.state.condominium + this.state.loft + this.state.other + this.state.bedBreakfast + this.state.bungalow})
+
   }
 
   clickHandler(d, e) {
@@ -69,20 +72,17 @@ export class PropertyChart extends React.Component {
         value: d.value,
         key: d.data.key})
   }
- createTooltip(){
-   if(this.state.showToolTip){
-     return(
-       <div>
-         <a data-tip data-for='click'> {this.state.key}(Hover over me to show data) </a>
-         <ReactTooltip id='click' type='error'>
-           <span>There are {this.state.value} {this.state.key}</span>
-         </ReactTooltip>
-   </div>
-     )
-   }
- }
+  renderHover = () =>{
 
-
+      if(this.state.value === 0){
+        return(
+          <a data-tip data-for='click'>There is a total amount of {this.state.total} properities</a>
+        )
+      }
+      else{
+        return(<a a data-tip data-for='click'>There are {this.state.value } {this.state.key} properities</a>)
+      }
+  }
 
   render() {
 
@@ -91,6 +91,7 @@ export class PropertyChart extends React.Component {
           <div>
           </div>
           <div className = "cell small-4">
+               {this.renderHover()}
           <PieChart labels   innerHoleSize={200} size={400} data={[
       {
         key: 'House',
@@ -115,10 +116,9 @@ export class PropertyChart extends React.Component {
         value: this.state.other
       }
     ]}
-    clickHandler = {this.clickHandler.bind(this)}
+    clickHandler={this.clickHandler.bind(this)}
   />
   </div>
-    {this.createTooltip()}
 </div>
   )
   }

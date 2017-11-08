@@ -279,10 +279,7 @@ export class NeighbourhoodPrices extends React.Component {
      if(this.state.showToolTip){
        return(
          <div>
-           <a data-tip data-for='click'> {this.state.x}(Hover over me to show data) </a>
-           <ReactTooltip id='click' type='error'>
-             <span>There are {this.state.y} {this.state.x}</span>
-           </ReactTooltip>
+           <a data-tip data-for='click'> The average price is ${this.state.y} in {this.state.x} </a>
      </div>
        )
      }
@@ -390,7 +387,7 @@ export class NeighbourhoodPrices extends React.Component {
       ]}
       clickHandler = {this.clickHandler.bind(this)}/>
     </div>
-      {this.createTooltip()}
+    {this.createTooltip()}
   </div>)
     }
 }
