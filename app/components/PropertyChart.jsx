@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {PieChart} from 'react-easy-chart';
+import ReactTooltip from 'react-tooltip'
 
 export class PropertyChart extends React.Component {
   constructor(props) {
@@ -62,21 +63,21 @@ export class PropertyChart extends React.Component {
     })
   }
 
-  mouseOverHandler(d, e) {
+  clickHandler(d, e) {
     this.setState({
-      showToolTip: true})
-      return(
-      <h1>hidffhfadjlhf;adfjkadjfk;adj;faj;afd</h1>
-      )
+      showToolTip: true,
+        value: d.value,
+        key: d.data.key})
   }
-  mouseOutHandler() {
-   this.setState({showToolTip: false});
- }
-
  createTooltip(){
    if(this.state.showToolTip){
      return(
-     <h1>hidffhfadjlhf;adfjkadjfk;adj;faj;afd</h1>
+       <div>
+         <a data-tip data-for='click'> {this.state.key}(Hover over me to show data) </a>
+         <ReactTooltip id='click' type='error'>
+           <span>There are {this.state.value} {this.state.key}</span>
+         </ReactTooltip>
+   </div>
      )
    }
  }
@@ -87,6 +88,8 @@ export class PropertyChart extends React.Component {
 
     return (
         <div className = "grid-x grid-padding-x align-center">
+          <div>
+          </div>
           <div className = "cell small-4">
           <PieChart labels   innerHoleSize={200} size={400} data={[
       {
@@ -112,10 +115,10 @@ export class PropertyChart extends React.Component {
         value: this.state.other
       }
     ]}
-    mouseOverHandler={this.mouseOverHandler.bind(this)}
-    mouseOutHandler={this.mouseOutHandler.bind(this)}
+    clickHandler = {this.clickHandler.bind(this)}
   />
   </div>
+    {this.createTooltip()}
 </div>
   )
   }
