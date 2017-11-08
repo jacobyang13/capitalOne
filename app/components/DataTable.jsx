@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-// const apiBaseUrl = "http://localhost:3000/api/";
-const apiBaseUrl = "http://capitalone-jacob-yang.herokuapp.com/api/";
+const apiBaseUrl = "http://localhost:3000/api/";
+const apiBaseUrl1 = "http://capitalone-jacob-yang.herokuapp.com/api/";
 import request from 'superagent';
 import axios from 'axios';
 import NeighbourhoodPrices from 'NeighbourhoodPrices'
@@ -27,7 +27,7 @@ class DataTable extends React.Component {
 
   componentDidMount = () => {
     //superagent makes a get request for listings.csv data that is being parsed by Papaparse from the server
-    request.get(apiBaseUrl + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
+    request.get(apiBaseUrl1 + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
       var data = res.body.results.data;
       //allows data to be parsed before loading components
       this.setState({listingsDataTemp: data});
@@ -86,9 +86,12 @@ class DataTable extends React.Component {
           <div className = "cell"><div className = "callout"><h3 className = "center">Pie Chart Graph for different types of property in San Fransico</h3>
           <p className = "center">Click on graph to show data</p>
           {this.renderPropertyChart()}</div></div>
-          <div className = "cell"><div className = "callout"><h3 className = "center">Bar Graph for average price per night for each neighbourhood in San Fransico</h3>{this.renderNeighbourhoodPrices()}</div></div>
-          <div className = "cell"><div className = "callout"><h3 className = "center">Line Chart for average rating for each neighbourhood in San Fransico</h3>{this.renderNeighbourhoodReviews()}</div></div>
-          <div className = "cell"><div className = "callout"><h3 className = "center">Line Chart for average rating depending on cancellation policy in San Fransico</h3>{this.renderAllReviews()}</div></div>
+          <div className = "cell"><div className = "callout"><h3 className = "center">Bar Graph for average price per night for each neighbourhood in San Fransico</h3>
+          {this.renderNeighbourhoodPrices()}</div></div>
+          <div className = "cell"><div className = "callout"><h3 className = "center">Line Chart for average rating for each neighbourhood in San Fransico</h3>
+          {this.renderNeighbourhoodReviews()}</div></div>
+          <div className = "cell"><div className = "callout"><h3 className = "center">Line Chart for average rating depending on cancellation policy in San Fransico</h3>
+          {this.renderAllReviews()}</div></div>
         </div>
 
       </div>

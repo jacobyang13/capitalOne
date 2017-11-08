@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BarChart} from 'react-easy-chart';
+import ReactTooltip from 'react-tooltip'
 
 export class NeighbourhoodPrices extends React.Component {
   constructor(props) {
@@ -70,8 +71,6 @@ export class NeighbourhoodPrices extends React.Component {
       westernP: 0.00,
       westernC: 0.00,
       showToolTip: false,
-      top: "",
-      left: "",
       y: "",
       x: ""
     }
@@ -270,6 +269,24 @@ export class NeighbourhoodPrices extends React.Component {
       })
       return;
     }
+    clickHandler(d, e) {
+      this.setState({
+        showToolTip: true,
+          y: d.y,
+          x: d.x})
+    }
+   createTooltip(){
+     if(this.state.showToolTip){
+       return(
+         <div>
+           <a data-tip data-for='click'> {this.state.x}(Hover over me to show data) </a>
+           <ReactTooltip id='click' type='error'>
+             <span>There are {this.state.y} {this.state.x}</span>
+           </ReactTooltip>
+     </div>
+       )
+     }
+   }
   render() {
 
       return (
@@ -371,10 +388,9 @@ export class NeighbourhoodPrices extends React.Component {
           y: this.state.westernP / this.state.westernC
         }
       ]}
-      mouseOverHandler={this.mouseOverHandler}
-      mouseOutHandler={this.mouseOutHandler}
-      mouseMoveHandler={this.mouseMoveHandler}/>
+      clickHandler = {this.clickHandler.bind(this)}/>
     </div>
+      {this.createTooltip()}
   </div>)
     }
 }
