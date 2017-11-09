@@ -13,7 +13,7 @@ export class Main extends React.Component {
         <Nav/>
         <div>
           <div>
-          <DataTable/>
+        <DataTable/>
           </div>
         </div>
       </div>

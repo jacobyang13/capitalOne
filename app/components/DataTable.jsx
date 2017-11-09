@@ -11,7 +11,7 @@ import SubTable from 'SubTable'
 import PropertyChart from 'PropertyChart'
 import Logo from 'babel!svg-react!unc.svg';
 import SubTableSelected from 'SubTableSelected'
-
+import Map from 'Map'
 
 class DataTable extends React.Component {
   constructor(props) {
@@ -73,6 +73,7 @@ class DataTable extends React.Component {
   renderData = () => {
     return (
       <div>
+      <Map/>
         <div>
           {this.renderSubTableSelected()}
         </div>

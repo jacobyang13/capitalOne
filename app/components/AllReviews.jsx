@@ -55,15 +55,15 @@ export class AllReviews extends React.Component {
      if(this.state.showToolTip){
        return(
          <div>
-           <a data-tip data-for='click'> The average rating is a {this.state.y} in {this.state.x} </a>
+           <a data-tip data-for='click'> The average rating is a {this.state.y} with a {this.state.x} cancellation policy</a>
      </div>
        )
      }
    }
   render() {
       return(
-        <div className = "">
-          <div className = "">
+        <div className = "grid-x align-center">
+          <div className = "cell">
         <LineChart
           width={1000}
           height={500}

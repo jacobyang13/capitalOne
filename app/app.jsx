@@ -16,9 +16,8 @@ require('style!css!!sass!applicationStyles');
 
 
 ReactDOM.render(
-  <BrowserRouter>
+
   <Main/>
-</BrowserRouter>
 ,
   document.getElementById('app')
 );
