@@ -36,7 +36,7 @@ class DataTable extends React.Component {
     //allows data to be rendered and parsed. Loading screen set to 20 seconds
     setTimeout(function() {
       this.setState({start: ""});
-    }.bind(this), 25000)
+    }.bind(this), 5000)
   }
 
   //renders all visulations

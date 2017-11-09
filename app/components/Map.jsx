@@ -9,7 +9,7 @@ export default class Map extends React.Component {
     this.map = null;
   }
 
-
+  
   componentDidMount = () =>{
     this.map = new google.maps.Map(this.mapElement, {
     zoom: 8,
