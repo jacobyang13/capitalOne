@@ -75,8 +75,8 @@ export class SubTable extends React.Component {
       <tr key={id} onClick={() => this.props.onItemClick(item)}>
         <td>{item.id}</td>
         <td>{item.neighbourhood}</td>
-        <td>{item.latitude}</td>
-        <td>{item.longitude}</td>
+        <td>{item.latitude.substring(0,6)}</td>
+        <td>{item.longitude.substring(0,8)}</td>
         <td>{item.price}</td>
         <td>{item.property_type}</td>
         <td>{item.room_type}</td>

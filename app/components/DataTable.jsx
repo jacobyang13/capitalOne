@@ -73,7 +73,7 @@ class DataTable extends React.Component {
   renderData = () => {
     return (
       <div>
-      <Map/>
+      <Map data ={this.state.listingsDataTemp}/>
         <div>
           {this.renderSubTableSelected()}
         </div>

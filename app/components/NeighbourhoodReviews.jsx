@@ -312,7 +312,7 @@ export class NeighbourhoodReviews extends React.Component {
    if(this.state.showToolTip){
      return(
        <div>
-         <a data-tip data-for='click'> The average rating is a {this.state.y} in {this.state.x} </a>
+         <a data-tip data-for='click'> The average rating is a {this.state.y.toFixed(2)} in {this.state.x} </a>
    </div>
      )
    }

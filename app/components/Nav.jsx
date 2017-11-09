@@ -20,9 +20,10 @@ export class Nav extends React.Component {
             </li>
             <li className="menu-text">
               <div className = "shift-left">Jacob Yang</div>
-
             </li>
-          
+            <li ><a className = "customW" href="#">Main</a></li>
+            <li><a className = "customW" href="#">Graph Data</a></li>
+
           </ul>
         </div>
         <div className = "top-bar-right">

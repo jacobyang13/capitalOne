@@ -55,7 +55,7 @@ export class AllReviews extends React.Component {
      if(this.state.showToolTip){
        return(
          <div>
-           <a data-tip data-for='click'> The average rating is a {this.state.y} with a {this.state.x} cancellation policy</a>
+           <a data-tip data-for='click'> The average rating is a {this.state.y.toFixed(2)} with a {this.state.x} cancellation policy</a>
      </div>
        )
      }

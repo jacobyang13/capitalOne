@@ -279,7 +279,7 @@ export class NeighbourhoodPrices extends React.Component {
      if(this.state.showToolTip){
        return(
          <div>
-           <a data-tip data-for='click'> The average price is ${this.state.y} in {this.state.x} </a>
+           <a data-tip data-for='click'> The average price is ${this.state.y.toFixed(2)} in {this.state.x} </a>
      </div>
        )
      }
