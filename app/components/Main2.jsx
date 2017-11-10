@@ -4,16 +4,16 @@ var uuid = require('node-uuid');
 var moment = require('moment');
 
 import Nav from 'Nav'
-import SearchMap from 'SearchMap'
+import DataGraphs from 'DataGraphs'
 
-export class Main extends React.Component {
+export class Main2 extends React.Component {
   render() {
     return (
       <div className = "font">
         <Nav/>
         <div>
           <div>
-        <SearchMap/>
+        <DataGraphs/>
           </div>
         </div>
       </div>
@@ -22,4 +22,4 @@ export class Main extends React.Component {
   }
 };
 
-module.exports = Main;
+module.exports = Main2;

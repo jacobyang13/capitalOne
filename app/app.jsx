@@ -1,10 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var{Route, Router, IndexRoute, hashHistory} = require('react-router');
-import { BrowserRouter } from 'react-router-dom'
-
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 var Main = require('Main')
+var Main2 = require('Main2')
 
 
 //Load foundation
@@ -16,8 +14,13 @@ require('style!css!!sass!applicationStyles');
 
 
 ReactDOM.render(
+  <BrowserRouter>
+        <Switch>
+  <Route exact path='/' component={Main}/>
+  <Route path='/graphs' component={Main2}/>
+</Switch>
+     </BrowserRouter>
 
-  <Main/>
 ,
   document.getElementById('app')
 );

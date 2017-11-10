@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-var {Link, IndexLink} = require('react-router');
+import { Link } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import Logo from 'babel!svg-react!unc.svg';
 
 export class Nav extends React.Component {
@@ -21,8 +22,12 @@ export class Nav extends React.Component {
             <li className="menu-text">
               <div className = "shift-left">Jacob Yang</div>
             </li>
-            <li ><a className = "customW" href="#">Main</a></li>
-            <li><a className = "customW" href="#">Graph Data</a></li>
+            <li>
+            <Link to='/'><div className = "customW">Home</div></Link>
+            </li>
+            <li>
+            <Link to='/graphs'><div className = "customW">Data Graphs</div></Link>
+            </li>
 
           </ul>
         </div>
