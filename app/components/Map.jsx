@@ -66,10 +66,11 @@ export default class Map extends React.Component {
     e.preventDefault();
     var address = this.searchInputElement.value;
     if(this.state.search !== address){
+      //sets the state to search to trigger new return content
       this.setState({hasSearched: true, search: address})
-        this.state.weekPrice = 0;
-        this.state.weekPriceCount = 0;
-        this.state.averageWeekPrice = 0;
+      //for some reason this.setState was unable to successfully change the price. Had to do it this way... not recommended...
+      this.state.weekPrice = 0; this.state.weekPriceCount = 0; this.state.averageWeekPrice = 0;
+
       this.geocodeAddress(address);
       this.calculatePrice(address);
 

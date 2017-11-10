@@ -117,7 +117,9 @@ class DataTable extends React.Component {
                 <div>
                   {this.state.start === "loading..."
                     ? this.renderStart()
-                    : this.renderData()}
+                    : this.state.listingsDataTemp <8000 ?
+                      <div><h1 className = "center">Please Reload</h1></div>
+                      :this.renderData()}
                 </div>
               )
 }
