@@ -11,17 +11,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 var router = express.Router();
 
-let results = Papa.parse(fs.createReadStream('./listings.csv'), {
-     delimiter: ",",
-     header: true,
-     complete: function(results, parser) {
-       return({"results": results});
-}
- });
- router.get('/getAllListings1', function(req,res){
-    res.send(results)
-  })
-
 router.get('/getAllListings', function(req,res){
   Papa.parse(fs.createReadStream('./listings.csv'), {
        delimiter: ",",
