@@ -22,8 +22,10 @@ router.get('/getAllListings', function(req,res){
        header: true,
        complete: function(results, parser) {
          res.send({"results": results});
+         next();
  }
    });
+
 });
 app.use('/api', router);
 const PORT = process.env.PORT || 3000;

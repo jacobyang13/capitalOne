@@ -27,7 +27,7 @@ class DataTable extends React.Component {
 
   componentDidMount = () => {
     //superagent makes a get request for listings.csv data that is being parsed by Papaparse from the server
-    request.get(apiBaseUrl1 + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
+    request.get(apiBaseUrl + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
       var data = res.body.results.data;
       //allows data to be parsed before loading components
       this.setState({listingsDataTemp: data});
@@ -36,7 +36,7 @@ class DataTable extends React.Component {
     //allows data to be rendered and parsed. Loading screen set to 20 seconds
     setTimeout(function() {
       this.setState({start: ""});
-    }.bind(this), 30000)
+    }.bind(this), 5000)
   }
 
   //renders all visulations
