@@ -8,8 +8,8 @@
 
 .shrink{
   margin-top: 250px;
-  height: 20px;
-  width: 10%;
+  height: 8em;
+  width: 9em;
   text-align: center;
   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
   flex: auto;
@@ -28,6 +28,8 @@
 
 .font{
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    height: 100%;
+    width: 100%;
 }
 .center{
   text-align: center;
@@ -48,4 +50,13 @@
 .width{
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
   width: 100%;
+}
+
+.map{
+  width: 100vw;
+  min-height: 50vh;
+}
+.sameSize{
+  width:100vw;
+  min-height: 50vh;
 }

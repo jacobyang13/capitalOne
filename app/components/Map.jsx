@@ -81,6 +81,32 @@ export default class Map extends React.Component {
 
   }
   //price estimation method based on geolocation
+  calculateOptimization = (address) =>{
+      var latlngStr = address.split(',', 2)
+      var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+
+      var searchLat = latlng.lat.toFixed(2);
+      var searchLong = latlng.lng.toFixed(2);
+
+      var  weekPrice = this.state.data.filter((list) => {
+          var listLati = parseFloat(list.latitude).toFixed(2)
+          var listLongi = parseFloat(list.longitude).toFixed(2)
+          if(searchLat === listLati && searchLong === listLongi){
+              if(list.price !== "" || null){
+            this.setState({
+          weekPrice: this.state.weekPrice += parseFloat(list.price.replace(/[^0-9.-]+/g, '')),
+          weekPriceCount: this.state.weekPriceCount +=1
+        });
+      }
+
+        }
+
+
+  })
+  this.setState({averageWeekPrice: this.state.weekPrice * 7/ this.state.weekPriceCount})
+}
+
+  //price estimation method based on geolocation
   calculatePrice = (address) =>{
       var latlngStr = address.split(',', 2)
       var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
@@ -140,11 +166,16 @@ export default class Map extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = "">
+      <div className = "">
+      <div className = "">
+
+        <div className = "sameSize">
+          <div className = "callout">
         <div>
           <form onSubmit={this.handleSubmit}>
             <input type="text" id="address" ref={this.setSearchInputElementReference} placeholder="Search by Coordinates(Longitude and Latitude eg: 37.75, -122.40)"/>
-            <button className="button expanded custom">Search</button>
+            <button className="button expanded custom">Search Map</button>
           </form>
           {this.state.isGeocodingError
             ? <p className="center">Address not found.</p>
@@ -158,13 +189,23 @@ export default class Map extends React.Component {
           </p>
         </div>
 
-        <div className="grid-x align-center align-middle">
+
+        <div className="">
+          <div className = "">
+            <div className = "callout">
           <div className="map" ref={this.setMapElementReference} style={{
-            height: '500px',
-            width: '1200px'
+            height: '100%',
+            width: '100%'
           }}></div>
         </div>
       </div>
+      </div>
+    </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
     );
   }
 }

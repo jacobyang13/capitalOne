@@ -1,9 +1,7 @@
 var express = require("express");
 var bodyParser = require('body-parser');
 var app = express();
-var csv = require('express-csv')
 var Papa = require("papaparse")
-var http = require('http');
 var fs = require('fs');
 
 
@@ -11,8 +9,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 var router = express.Router();
 
+
 router.get('/getAllListings', function(req,res){
-  Papa.parse(fs.createReadStream('./listings.csv'), {
+  Papa.parse(fs.createReadStream('./listings.csv', { encoding: 'utf8' }), {
        delimiter: ",",
        worker: true,
        header: true,

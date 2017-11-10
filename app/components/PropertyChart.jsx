@@ -90,9 +90,9 @@ export class PropertyChart extends React.Component {
         <div className = "grid-x grid-padding-x align-center">
           <div>
           </div>
-          <div className = "cell small-4">
+          <div className = "cell small-4 centerRight">
                {this.renderHover()}
-          <PieChart labels   innerHoleSize={200} size={400} data={[
+          <PieChart labels   innerHoleSize={200} size={450} data={[
       {
         key: 'House',
         value: this.state.house

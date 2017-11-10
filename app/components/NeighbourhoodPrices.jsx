@@ -6,7 +6,8 @@ import ReactTooltip from 'react-tooltip'
 export class NeighbourhoodPrices extends React.Component {
   constructor(props) {
     super(props);
-
+    const initialWidth = window.innerWidth > 0 ? window.innerWidth : 500;
+     this.handleResize = this.handleResize.bind(this);
     this.state = {
       bayviewPrice: 0.00,
       bayviewCount: 0.00,
@@ -72,11 +73,21 @@ export class NeighbourhoodPrices extends React.Component {
       westernC: 0.00,
       showToolTip: false,
       y: "",
-      x: ""
+      x: "",
+      windowWidth: initialWidth - 100,
+      componentWidth: 300
     }
+  }
+  handleResize = ()=> {
+    this.setState({
+      windowWidth: window.innerWidth - 100,
+      componentWidth: this.refs.component.offsetWidth
+    });
   }
   componentDidMount = () =>{
       var tempData = this.props.data;
+      window.addEventListener('resize', this.handleResize);
+      this.handleResize();
       tempData = tempData.map((list) => {
         switch (list.neighbourhood) {
           case "Bayview":
@@ -279,7 +290,7 @@ export class NeighbourhoodPrices extends React.Component {
      if(this.state.showToolTip){
        return(
          <div>
-           <a data-tip data-for='click'> The average price is ${this.state.y.toFixed(2)} in {this.state.x} </a>
+           <a className = "center" data-tip data-for='click'> The average price is ${this.state.y.toFixed(2)} in {this.state.x} </a>
      </div>
        )
      }
@@ -289,7 +300,8 @@ export class NeighbourhoodPrices extends React.Component {
       return (
         <div className = "grid-x align-center">
           <div className = "cell">
-            <BarChart width = {1200} height = {520} colorBars grid axes yDomainRange={[0, 570]}  axisLabels={{
+            <div ref = "component">
+            <BarChart width = {this.state.componentWidth} height = {this.state.componentWidth / 2} colorBars grid axes yDomainRange={[0, 570]}  axisLabels={{
         x: 'Neighbourhoods',
         y: 'Average price'
       }} data={[
@@ -387,7 +399,9 @@ export class NeighbourhoodPrices extends React.Component {
       ]}
       clickHandler = {this.clickHandler.bind(this)}/>
     </div>
-    {this.createTooltip()}
+
+  </div>
+      {this.createTooltip()}
   </div>)
     }
 }

@@ -119,7 +119,7 @@ export class SubTable extends React.Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <input type="text" ref="text" placeholder="Search by Neighbourhood or Price or Property Type(To get rid of data, type in empty string)"/>
-            <button className="button expanded custom">Search</button>
+            <button className="button expanded custom">Search database</button>
           </form>
           <table className="hover unstriped width">
             <thead>

@@ -6,7 +6,8 @@ import ReactTooltip from 'react-tooltip'
 export class AllReviews extends React.Component {
   constructor(props) {
     super(props);
-
+    const initialWidth = window.innerWidth > 0 ? window.innerWidth : 500;
+     this.handleResize = this.handleResize.bind(this);
     this.state = {
       cancelStrictScore: 0,
       cancelModerateScore:0,
@@ -16,11 +17,21 @@ export class AllReviews extends React.Component {
       cancelFlexibleCount: 0,
       showToolTip: false,
       y: "",
-      x: ""
+      x: "",
+      windowWidth: initialWidth - 100,
+      componentWidth: 300
     }
+  }
+  handleResize = ()=> {
+    this.setState({
+      windowWidth: window.innerWidth - 100,
+      componentWidth: this.refs.component.offsetWidth
+    });
   }
   componentDidMount = () =>{
         var tempData = this.props.data
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
         tempData = tempData.map((list) =>{
           switch(list.cancellation_policy){
             case "strict":
@@ -64,9 +75,9 @@ export class AllReviews extends React.Component {
       return(
         <div className = "grid-x align-center">
           <div className = "cell">
+              <div ref = "component">
         <LineChart
-          width={1000}
-          height={500}
+        width = {this.state.componentWidth} height = {this.state.componentWidth / 2}
           axes
           lineColors={['red']}
           dataPoints
@@ -85,6 +96,8 @@ export class AllReviews extends React.Component {
         ]}
         clickHandler = {this.clickHandler.bind(this)}
   />
+</div>
+
 </div>
 {this.createTooltip()}
   </div>

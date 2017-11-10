@@ -34,7 +34,7 @@ class DataGraphs extends React.Component {
     //allows data to be rendered and parsed. Loading screen set to 20 seconds
     setTimeout(function() {
       this.setState({start: ""});
-    }.bind(this), 9000)
+    }.bind(this), 30000)
 
   }
 
@@ -61,16 +61,17 @@ class DataGraphs extends React.Component {
     return (
       <div>
         <div className = "grid-x grid-padding-x align-center">
-          <div className = "cell"><div className = "callout"><h3 className = "center">Pie Chart Graph for different types of property in San Francisco</h3>
+          <div><h2 className = "center">Graphs</h2></div>
+          <div className = "cell"><div className = "callout"><h3 className = "center">Total number of different types of property in San Francisco</h3>
           <p className = "center">Click on graph to show data</p>
           {this.renderPropertyChart()}</div></div>
-          <div className = "cell"><div className = "callout"><h3 className = "center">Bar Graph for average price per night for each neighbourhood in San Francisco</h3>
+          <div className = "cell"><div className = "callout"><h3 className = "center">Average price per night for each neighbourhood in San Francisco</h3>
             <p className = "center">Click on graph to show data</p>
           {this.renderNeighbourhoodPrices()}</div></div>
-          <div className = "cell"><div className = "callout"><h3 className = "center">Line Chart for average rating for each neighbourhood in San Francisco</h3>
+          <div className = "cell"><div className = "callout"><h3 className = "center">Average overall rating for each neighbourhood in San Francisco</h3>
             <p className = "center">Click on graph to show data</p>
           {this.renderNeighbourhoodReviews()}</div></div>
-          <div className = "cell"><div className = "callout"><h3 className = "center">Line Chart for average rating depending on cancellation policy in San Francisco</h3>
+          <div className = "cell"><div className = "callout"><h3 className = "center">Average overall rating depending on cancellation policy in San Francisco</h3>
             <p className = "center">Click on graph to show data</p>
           {this.renderAllReviews()}</div></div>
         </div>

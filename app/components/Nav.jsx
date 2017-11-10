@@ -16,6 +16,7 @@ export class Nav extends React.Component {
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
+
             <li className= "shrinkS">
                 <Logo/>
             </li>
@@ -28,7 +29,6 @@ export class Nav extends React.Component {
             <li>
             <Link to='/graphs'><div className = "customW">Data Graphs</div></Link>
             </li>
-
           </ul>
         </div>
         <div className = "top-bar-right">

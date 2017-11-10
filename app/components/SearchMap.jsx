@@ -32,7 +32,7 @@ class SearchMap extends React.Component {
     //allows data to be rendered and parsed. Loading screen set to 20 seconds
     setTimeout(function() {
       this.setState({start: ""});
-    }.bind(this), 9000)
+    }.bind(this), 30000)
   }
 
   //methods for adding listings to table and removing
@@ -57,7 +57,7 @@ class SearchMap extends React.Component {
       <div>
       <Map data ={this.state.listingsDataTemp}/>
         <div>
-          {this.renderSubTableSelected()}
+          {/* {this.renderSubTableSelected()} */}
         </div>
         <div>
           <div className="callout">
