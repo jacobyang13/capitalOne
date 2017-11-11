@@ -78,12 +78,11 @@ export class AllReviews extends React.Component {
               <div ref = "component">
         <LineChart
         width = {this.state.componentWidth} height = {this.state.componentWidth / 2}
-          axes
           lineColors={['red']}
           dataPoints
           axisLabels={{x: 'All Cancellation Policy', y: 'All Overall Rating'}}
           grid
-          // margin={{top: 10, right: 10, bottom: 10, left: 0}}
+          axes
           xType={'text'}  interpolate={'cardinal'}
         data={[
           [

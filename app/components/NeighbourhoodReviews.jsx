@@ -335,9 +335,9 @@ export class NeighbourhoodReviews extends React.Component {
         <div ref = "component">
       <LineChart
         width = {this.state.componentWidth} height = {this.state.componentWidth / 2}
-        axes
         lineColors={['blue']}
         dataPoints
+        axes
         axisLabels={{x: 'All Cancellation Policy     (Seacliff has the highest neighbourhood rating)'
         , y: 'All Overall Rating'}}
         grid

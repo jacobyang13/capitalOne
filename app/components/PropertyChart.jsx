@@ -76,11 +76,11 @@ export class PropertyChart extends React.Component {
 
       if(this.state.value === 0){
         return(
-          <a data-tip data-for='click'>There is a total amount of {this.state.total} properities</a>
+          <a data-tip data-for='click'>There is a total amount of {this.state.total} properties</a>
         )
       }
       else{
-        return(<a a data-tip data-for='click'>There are {this.state.value } {this.state.key} properities</a>)
+        return(<a a data-tip data-for='click'>There are {this.state.value } {this.state.key} properties</a>)
       }
   }
 
@@ -92,7 +92,7 @@ export class PropertyChart extends React.Component {
           </div>
           <div className = "cell small-4 centerRight">
                {this.renderHover()}
-          <PieChart labels   innerHoleSize={200} size={450} data={[
+          <PieChart   innerHoleSize={200} size={450} data={[
       {
         key: 'House',
         value: this.state.house

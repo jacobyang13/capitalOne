@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
 import Logo from 'babel!svg-react!unc.svg';
 
 export class Nav extends React.Component {

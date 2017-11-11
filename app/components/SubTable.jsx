@@ -18,7 +18,7 @@ export class SubTable extends React.Component {
 
   }
   handleOptionChange = e => {
-    this.setState({selectedOption: e.target.value});
+    this.setState({selectedOption: e.target.value, listingsData: []});
   }
   handleSearch = (text) => {
 
@@ -58,9 +58,7 @@ export class SubTable extends React.Component {
     }
     if (option === 'option2' && this.state.searchValue.length > 0) {
       filteredTable = this.state.listingsData.filter((list) => {
-        var price = parseFloat(list.price.replace(/[^0-9.-]+/g, ''))
-        var value = Number(this.state.searchValue)
-        return (value - price) <= 0
+        return list.cancellation_policy.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) === 0
 
       })
     }
@@ -72,7 +70,7 @@ export class SubTable extends React.Component {
 
     return (filteredTable.map((item, id) => (
 
-      <tr key={id} onClick={() => this.props.onItemClick(item)}>
+      <tr key={id}>
         <td>{item.id}</td>
         <td>{item.neighbourhood}</td>
         <td>{item.latitude.substring(0,6)}</td>
@@ -104,7 +102,7 @@ export class SubTable extends React.Component {
                 </label>
                 <label className="inline">
                   <input type="radio" value="option2" checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange}/>
-                  Price
+                  Cancellation Policy
                 </label>
                 <label className="inline">
                   <input type="radio" value="option3" checked={this.state.selectedOption === 'option3'} onChange={this.handleOptionChange}/>
@@ -118,7 +116,7 @@ export class SubTable extends React.Component {
 
         <div>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" ref="text" placeholder="Search by Neighbourhood or Price or Property Type(To get rid of data, type in empty string)"/>
+            <input type="text" ref="text" placeholder="Search by Neighbourhood or Cancellation Policy or Property Type(To get rid of data, type in empty string)"/>
             <button className="button expanded custom">Search database</button>
           </form>
           <table className="hover unstriped width">
