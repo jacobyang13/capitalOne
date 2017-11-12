@@ -86,7 +86,7 @@ export class SubTable extends React.Component {
         <td>{item.price}</td>
         <td>{item.property_type}</td>
         <td>{item.room_type}</td>
-        <td>{item.monthly_price}</td>
+        <td>{item.beds}</td>
         <td>{item.reviews_per_month}</td>
         <td>{item.cancellation_policy}</td>
         <td>{item.review_scores_rating}</td>

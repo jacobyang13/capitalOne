@@ -66,10 +66,10 @@ export default class Map extends React.Component {
       this.setState({hasSearched: true, search: address})
       //for some reason this.setState was unable to successfully change the price. Had to do it this way... not recommended...
       //sets all state values back to zero to allow new search to return new data
-      this.state.weekPrice,
-      this.state.weekPriceCount,
+      this.state.weekPrice = 0
+      this.state.weekPriceCount = 0
       this.state.averageWeekPrice = 0;
-      this.state.amountBook,
+      this.state.amountBook = 0;
       this.state.amountPrice = 0;
       this.geocodeAddress(address);
       this.calculatePrice(address);
@@ -97,7 +97,7 @@ export default class Map extends React.Component {
       var listLati = parseFloat(list.latitude).toFixed(2)
       var listLongi = parseFloat(list.longitude).toFixed(2)
       if (searchLat === listLati && searchLong === listLongi) {
-        if (list.reviews_per_month !== "" || null) {
+        if (list.reviews_per_month !== "") {
 
           if (parseFloat(list.price.replace(/[^0-9.-]+/g, '')) > max) {
             max = parseFloat(list.price.replace(/[^0-9.-]+/g, '')),
@@ -113,11 +113,11 @@ export default class Map extends React.Component {
       }
 
     }) //end of filter method
-    max *= 31;
-    min *= 31;
-    console.log(max)
-    console.log(min)
-    //price-demand function now
+    max *= 29;
+    min *= 29;
+
+    //price-demand function now... calculates p = mx +b
+    //if only 1 number available from data set calculates function from just one number otherwise use to numbers the max and min
     if (max === min) {
       var m = min / minR;
       var b = (-1 * minR * m) + min;
@@ -126,8 +126,6 @@ export default class Map extends React.Component {
       var b = (-1 * minR * m) + min;
     }
 
-    console.log(m)
-    console.log(b)
     //derivative function to find max
     var amountB = (-1 * b) / (2 * m);
     var amountP = (m * (amountB * amountB)) + (b * amountB)
@@ -226,9 +224,7 @@ export default class Map extends React.Component {
                       </div>
                     : <div>
                       <p>Your estimated weekly average income will be around ${this.state.averageWeekPrice.toFixed(2)}</p>
-                      <p>To maximize your revenue per month, set the nightly price to ${(this.state.amountPrice / 31).toFixed(2)}
-                        to have {this.state.amountBook.toFixed(2)}
-                        bookings per month and a monthly income of ${this.state.amountPrice.toFixed(2)}</p>
+                      <p>To maximize your revenue per month, set the nightly price to ${(this.state.amountPrice / 29).toFixed(2)} to have {this.state.amountBook.toFixed(2)} bookings per month and a monthly income of ${this.state.amountPrice.toFixed(2)}</p>
                     </div>}
               </p>
             </div>
