@@ -25,21 +25,19 @@ export class Main extends React.Component {
   componentDidMount = () => {
     //superagent makes a get request for listings.csv data that is being parsed by Papaparse from the server
     if (this.state.listingsDataTemp.length === 0) {
-      request.get(apiBaseUrl1 + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
+      request.get(apiBaseUrl + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
         var data = res.body.results.data;
-        //allows data to be parsed before loading components
-        // setTimeout(function() {
-          this.setState({start: "", listingsDataTemp: data});
-        // }.bind(this), 5000)
+        //sets state to listings data that is now a json object of array
+        this.setState({start: "", listingsDataTemp: data});
 
       })
     }
 
   }
+  //renders 1st page wiht map and has link to second page of graphs
   renderPage = () => {
     return (
       <div className="font">
-
         <div>
           <div>
             <BrowserRouter>
@@ -52,17 +50,16 @@ export class Main extends React.Component {
                 </Switch>
               </div>
             </BrowserRouter>
-
           </div>
         </div>
       </div>
 
     );
   }
+  //creates loading unc spinning animation - allows data to parsed.
   renderStart = () => {
     return (
       <div className="grid-x grid-padding-x align-center align-middle">
-
         <div className="shrink">
           <Logo/>
           <p1>Loading... Please Wait</p1>
@@ -71,6 +68,7 @@ export class Main extends React.Component {
       </div>
     )
   }
+
   render() {
     return (
       <div>

@@ -5,7 +5,7 @@ import SubTable from 'SubTable'
 import SubTableSelected from 'SubTableSelected'
 import Map from 'Map'
 
-
+//renders map and search table here
 class SearchMap extends React.Component {
   constructor(props) {
     super(props);

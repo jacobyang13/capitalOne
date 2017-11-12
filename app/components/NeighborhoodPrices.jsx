@@ -78,12 +78,14 @@ export class NeighborhoodPrices extends React.Component {
       componentWidth: 300
     }
   }
+  //handles screen resize
   handleResize = ()=> {
     this.setState({
       windowWidth: window.innerWidth - 100,
       componentWidth: this.refs.component.offsetWidth
     });
   }
+  //upon screen load - goes through data and increments variables for graph
   componentDidMount = () =>{
       var tempData = this.props.data;
       window.addEventListener('resize', this.handleResize);
@@ -295,6 +297,7 @@ export class NeighborhoodPrices extends React.Component {
        )
      }
    }
+   //render bar graph
   render() {
 
       return (

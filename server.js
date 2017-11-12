@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 var router = express.Router();
 
+//parse listings data here
 router.get('/getAllListings', function(req, res) {
   Papa.parse(fs.createReadStream('./listings.csv', {encoding: 'utf8'}), {
     delimiter: ",",

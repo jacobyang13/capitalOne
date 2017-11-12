@@ -6,7 +6,6 @@ import NeighborhoodReviews from 'NeighborhoodReviews'
 import AllReviews from 'AllReviews'
 import PropertyChart from 'PropertyChart'
 
-
 class DataGraphs extends React.Component {
   constructor(props) {
     super(props);

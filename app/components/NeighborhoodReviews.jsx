@@ -84,6 +84,7 @@ export class NeighborhoodReviews extends React.Component {
       componentWidth: this.refs.component.offsetWidth
     });
   }
+  //same method as other graph... loads data and adds variables
   componentDidMount = () =>{
     var tempData = this.props.data;
     window.addEventListener('resize', this.handleResize);
@@ -328,6 +329,7 @@ export class NeighborhoodReviews extends React.Component {
      )
    }
  }
+ //renders graph
   render() {
     return(
       <div className = "grid-x align-center">

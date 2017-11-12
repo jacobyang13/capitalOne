@@ -32,7 +32,7 @@ export default class Map extends React.Component {
     };
   }
 
-  //handles search bar submissions- changes geolocation
+  //handles search bar submissions- changes geolocation and adds marker.
   geocodeAddress = (address) => {
     this.geocoder.geocode({
       'address': address
@@ -65,10 +65,12 @@ export default class Map extends React.Component {
       //sets the state to search to trigger new return content
       this.setState({hasSearched: true, search: address})
       //for some reason this.setState was unable to successfully change the price. Had to do it this way... not recommended...
-      this.state.weekPrice, this.state.weekPriceCount , this.state.averageWeekPrice = 0;
-      this.state.maxMonthlyPrice, this.state.maxMonthlyPrice = 0;
-      this.state.minMonthlyPrice, this.state.minMonthly = 100000.00;
-      this.state.amountBook, this.state.amountPrice = 0;
+      //sets all state values back to zero to allow new search to return new data
+      this.state.weekPrice,
+      this.state.weekPriceCount,
+      this.state.averageWeekPrice = 0;
+      this.state.amountBook,
+      this.state.amountPrice = 0;
       this.geocodeAddress(address);
       this.calculatePrice(address);
       this.calculateOptimization(address);
@@ -97,57 +99,53 @@ export default class Map extends React.Component {
       if (searchLat === listLati && searchLong === listLongi) {
         if (list.reviews_per_month !== "" || null) {
 
-          if(parseFloat(list.price.replace(/[^0-9.-]+/g, '')) > max){
-          max = parseFloat(list.price.replace(/[^0-9.-]+/g, '')),
-          maxR = Number(list.reviews_per_month)
-        }
-        if(parseFloat(list.price.replace(/[^0-9.-]+/g, '')) < min){
-          min = parseFloat(list.price.replace(/[^0-9.-]+/g, '')),
-          minR = Number(list.reviews_per_month)
-        }
+          if (parseFloat(list.price.replace(/[^0-9.-]+/g, '')) > max) {
+            max = parseFloat(list.price.replace(/[^0-9.-]+/g, '')),
+            maxR = Number(list.reviews_per_month)
+          }
+          if (parseFloat(list.price.replace(/[^0-9.-]+/g, '')) < min) {
+            min = parseFloat(list.price.replace(/[^0-9.-]+/g, '')),
+            minR = Number(list.reviews_per_month)
+          }
 
         }
 
       }
 
-    })//end of filter method
+    }) //end of filter method
     max *= 31;
-    min *=31;
+    min *= 31;
     console.log(max)
     console.log(min)
     //price-demand function now
-    if(max === min){
-      var m = min/ minR;
+    if (max === min) {
+      var m = min / minR;
+      var b = (-1 * minR * m) + min;
+    } else {
+      var m = (min - max) / (minR - maxR);
       var b = (-1 * minR * m) + min;
     }
-    else{
-    var m = (min - max) / (minR - maxR);
-    var b = (-1 * minR * m) + min;
-  }
 
-  console.log(m)
-  console.log(b)
+    console.log(m)
+    console.log(b)
     //derivative function to find max
-    var amountB = (-1 * b) / (2*m);
+    var amountB = (-1 * b) / (2 * m);
     var amountP = (m * (amountB * amountB)) + (b * amountB)
-    this.setState({
-       amountBook: amountB,
-       amountPrice: amountP
-
-    })
+    this.setState({amountBook: amountB, amountPrice: amountP})
   }
 
-
-//   //price estimation method based on geolocation
+  //price estimation method based on geolocation
   calculatePrice = (address) => {
+    //splits geolocation into two strings
     var latlngStr = address.split(',', 2)
     var latlng = {
       lat: parseFloat(latlngStr[0]),
       lng: parseFloat(latlngStr[1])
     };
-
+    //sets longitude and latitude to two decimal places.
     var searchLat = latlng.lat.toFixed(2);
     var searchLong = latlng.lng.toFixed(2);
+    //goes through data here
     var weekPrice = this.state.data.filter((list) => {
       var listLati = parseFloat(list.latitude).toFixed(2)
       var listLongi = parseFloat(list.longitude).toFixed(2)
@@ -162,12 +160,13 @@ export default class Map extends React.Component {
       }
 
     })
+    //price only gets price per night so price is multipled by 7
     this.setState({
       averageWeekPrice: this.state.weekPrice * 7 / this.state.weekPriceCount
     })
   }
 
-  //mounts map
+  //mounts map and sets intial values
   componentDidMount = () => {
     this.map = new google.maps.Map(this.mapElement, {
       zoom: INITIAL_MAP_ZOOM_LEVEL,
@@ -217,17 +216,19 @@ export default class Map extends React.Component {
               <p className="center">
                 {this.state.hasSearched === false
                   ? <div>
-                  <p>Your weekly average income will be displayed upon searching</p>
-                  <p></p>
-                </div>
+                      <p>Your weekly average income will be displayed upon searching</p>
+                      <p>Your maximum revenue per month will be displayed upon searching</p>
+                    </div>
                   : this.state.weekPriceCount === 0
                     ? <div>
-                    <p>Could not calculate weekly average income due to searching outside data geolocation or not correctly typing in geolocation</p>
-                  <p>Could not calculate ideal price per night that will yield maximum revenue due to searching outside data geolocation or not correctly typing in geolocation</p>
-                </div>
+                        <p>Could not calculate weekly average income due to searching outside data geolocation or not correctly typing in geolocation</p>
+                        <p>Could not calculate ideal price per night that will yield maximum revenue due to searching outside data geolocation or not correctly typing in geolocation</p>
+                      </div>
                     : <div>
                       <p>Your estimated weekly average income will be around ${this.state.averageWeekPrice.toFixed(2)}</p>
-                      <p>To maximize your revenue per month, set the nightly price to ${(this.state.amountPrice / 31).toFixed(2)} to have {this.state.amountBook.toFixed(2)} bookings per month and a monthly income of ${this.state.amountPrice.toFixed(2)}</p>
+                      <p>To maximize your revenue per month, set the nightly price to ${(this.state.amountPrice / 31).toFixed(2)}
+                        to have {this.state.amountBook.toFixed(2)}
+                        bookings per month and a monthly income of ${this.state.amountPrice.toFixed(2)}</p>
                     </div>}
               </p>
             </div>

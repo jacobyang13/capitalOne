@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import update from 'immutability-helper';
 
+
+//not used. was intentional left in for future potential use
 export default function Selected(props) {
   const {data} = props;
 
