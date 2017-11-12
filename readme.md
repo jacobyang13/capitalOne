@@ -49,7 +49,7 @@ React-easy-chart - used to render charts
 
 
 Methods and Reasoning:
-1. Visualize the data: The neighborhoods that were used in the graphs were determined by the neighborhood.csv file. In listings.csv there were many more neighborhoods available, however, I decided to choose the 37 from the neighborhood.csv file. Additionally, I did not account for outliers such as extreme min's and max's or proper large enough data sets. Therefore, some data may not be accurate as either they will be skewed by extremely small or large numbers or there will only be 3 listings for a certain neighborhood.
+1. Visualize the data: The neighborhoods that were used in the graphs were determined by the neighborhood.csv file. In listings.csv there were many more neighborhoods available, however, I decided to choose the 37 from the neighborhood.csv file. Additionally, I did not account for outliers such as extreme min's and max's or proper large enough data sets. Therefore, some data may not be accurate as either they will be skewed by extremely small or large numbers or there would only be 3 listings for a certain neighborhood.
 
 
 
