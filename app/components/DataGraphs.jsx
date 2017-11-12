@@ -40,13 +40,13 @@ class DataGraphs extends React.Component {
           </div>
           <div className="cell">
             <div className="callout">
-              <h3 className="center">Average price per night for each neighbourhood in San Francisco</h3>
+              <h3 className="center">Average price per night for each neighborhood in San Francisco</h3>
               <p className="center">Click on graph to show data</p>
               {this.renderNeighborhoodPrices()}</div>
           </div>
           <div className="cell">
             <div className="callout">
-              <h3 className="center">Average overall rating for each neighbourhood in San Francisco</h3>
+              <h3 className="center">Average overall rating for each neighborhood in San Francisco</h3>
               <p className="center">Click on graph to show data</p>
               {this.renderNeighborhoodReviews()}</div>
           </div>

@@ -305,7 +305,7 @@ export class NeighborhoodPrices extends React.Component {
           <div className = "cell">
             <div ref = "component" className = "smallFont">
             <BarChart width = {this.state.componentWidth} height = {this.state.componentWidth / 2} colorBars grid axes yDomainRange={[0, 570]}  axisLabels={{
-        x: 'Neighbourhoods',
+        x: 'Neighborhoods',
         y: 'Average price'
       }} data={[
         {

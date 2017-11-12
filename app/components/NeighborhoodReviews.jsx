@@ -340,7 +340,7 @@ export class NeighborhoodReviews extends React.Component {
         lineColors={['blue']}
         dataPoints
         axes
-        axisLabels={{x: 'All Cancellation Policy     (Seacliff has the highest neighbourhood rating)'
+        axisLabels={{x: 'All Cancellation Policy     (Seacliff has the highest neighborhood rating)'
         , y: 'All Overall Rating'}}
         grid
         xType={'text'}  interpolate={'cardinal'}
