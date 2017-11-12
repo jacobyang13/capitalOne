@@ -1,12 +1,9 @@
-.makeSmaller{
-  margin-left: 10px;
-  margin-right:10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.makeSmaller {
+  margin: 10px;
   position: relative;
 }
 
-.shrink{
+.shrink {
   margin-top: 250px;
   height: 8em;
   width: 9em;
@@ -16,50 +13,53 @@
   position: absolute;
   -webkit-animation: rotation 10s infinite linear;
 }
-
 @-webkit-keyframes rotation {
-		from {
-				-webkit-transform: rotate(0deg);
-		}
-		to {
-				-webkit-transform: rotate(359deg);
-		}
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
 }
 
-.font{
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-    height: 100%;
-    width: 100%;
+.font {
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  height: 100%;
+  width: 100%;
 }
-.center{
+
+.center {
   text-align: center;
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
-.inline{
+.inline {
   display: inline-block;
   margin: 0 0.5em -0.5em 0;
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
-.hover.unstriped.width{
+.hover.unstriped.width {
   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
   width: 100%;
 }
-.width{
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+
+.width {
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
   width: 100%;
 }
 
-.map{
+.map {
   width: 100vw;
   min-height: 50vh;
 }
-.sameSize{
-  width:100vw;
+
+.sameSize {
+  width: 100vw;
   min-height: 50vh;
 }
-.smallFont{
-  font-size: .5px;
+
+.smallFont {
+  font-size: 0.5px;
 }

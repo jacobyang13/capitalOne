@@ -4,22 +4,20 @@ var app = express();
 var Papa = require("papaparse")
 var fs = require('fs');
 
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 var router = express.Router();
 
-
-router.get('/getAllListings', function(req,res){
-  Papa.parse(fs.createReadStream('./listings.csv', { encoding: 'utf8' }), {
-       delimiter: ",",
-       worker: true,
-       header: true,
-       complete: function(results, parser) {
-         res.send({"results": results});
- }
-   });
- })
+router.get('/getAllListings', function(req, res) {
+  Papa.parse(fs.createReadStream('./listings.csv', {encoding: 'utf8'}), {
+    delimiter: ",",
+    worker: true,
+    header: true,
+    complete: function(results, parser) {
+      res.send({"results": results});
+    }
+  });
+})
 
 app.use('/api', router);
 const PORT = process.env.PORT || 3000;

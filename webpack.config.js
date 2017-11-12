@@ -4,32 +4,23 @@ var envFile = require('node-env-file')
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
 
-try{
+try {
   envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'))
-}
-catch(e){
-
-}
+} catch (e) {}
 module.exports = {
   entry: [
-    'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/js/foundation.min.js',
-    './app/app.jsx'
+    'script!jquery/dist/jquery.min.js', 'script!foundation-sites/dist/js/foundation.min.js', './app/app.jsx'
   ],
-  externals:{
+  externals: {
     jquery: 'jQuery'
   },
-  plugins:[
-    new webpack.ProvidePlugin({
-      '$': 'jquery' ,
-      'jQuery': 'jquery'
-    }),
+  plugins: [
+    new webpack.ProvidePlugin({'$': 'jquery', 'jQuery': 'jquery'}),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false
       }
-    }),
-
+    })
   ],
   output: {
     path: __dirname,
@@ -37,11 +28,8 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
-    modulesDirectories:[
-      'node_modules',
-      './app/components' ,
-      './app/api',
-      './app/data'
+    modulesDirectories: [
+      'node_modules', './app/components', './app/api', './app/data'
     ],
     alias: {
       applicationStyles: 'app/styles/app.scss',
@@ -53,15 +41,19 @@ module.exports = {
   },
 
   module: {
-    rules: [{
-   test: /\.(c|d|t)sv$/, // load all .csv, .dsv, .tsv files with dsv-loader
-   use: ['dsv-loader'] // or dsv-loader?delimiter=,
- }],
+    rules: [
+      {
+        test: /\.(c|d|t)sv$/, // load all .csv, .dsv, .tsv files with dsv-loader
+        use: ['dsv-loader'] // or dsv-loader?delimiter=,
+      }
+    ],
     loaders: [
       {
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-0'],
+          presets: [
+            'react', 'es2015', 'stage-0'
+          ],
           plugins: ["transform-decorators-legacy"]
         },
         test: /\.jsx?$/,
@@ -70,11 +62,13 @@ module.exports = {
     ]
   },
   sassLoader: {
-    includePaths:[
+    includePaths: [
       path.resolve(__dirname, './node_modules/foundation-sites/scss'),
-        path.resolve(__dirname, 'node_modules/motion-ui/src'),
-          path.resolve(__dirname, './node_modules/motion-ui/src'),
+      path.resolve(__dirname, 'node_modules/motion-ui/src'),
+      path.resolve(__dirname, './node_modules/motion-ui/src')
     ]
   },
-  devtool: process.env.NODE_ENV === 'production' ? undefined :'cheap-module-eval-source-map'
+  devtool: process.env.NODE_ENV === 'production'
+    ? undefined
+    : 'cheap-module-eval-source-map'
 };

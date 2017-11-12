@@ -17,26 +17,26 @@ export class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        start: "loading...",
+      start: "loading...",
       listingsDataTemp: []
     };
 
   }
   componentDidMount = () => {
     //superagent makes a get request for listings.csv data that is being parsed by Papaparse from the server
-    if(this.state.listingsDataTemp.length === 0){
-    request.get(apiBaseUrl1 + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
-      var data = res.body.results.data;
-      //allows data to be parsed before loading components
-      setTimeout(function() {
-        this.setState({start: "", listingsDataTemp: data});
-      }.bind(this), 25000)
+    if (this.state.listingsDataTemp.length === 0) {
+      request.get(apiBaseUrl1 + 'getAllListings').set('API-Key', 'foobar').set('Accept', 'application/json').end((err, res) => {
+        var data = res.body.results.data;
+        //allows data to be parsed before loading components
+        // setTimeout(function() {
+          this.setState({start: "", listingsDataTemp: data});
+        // }.bind(this), 5000)
 
-    })
-  }
+      })
+    }
 
   }
-  renderPage=() => {
+  renderPage = () => {
     return (
       <div className="font">
 
@@ -59,25 +59,27 @@ export class Main extends React.Component {
 
     );
   }
-  renderStart = () => {return (
-    <div className = "grid-x grid-padding-x align-center align-middle">
+  renderStart = () => {
+    return (
+      <div className="grid-x grid-padding-x align-center align-middle">
 
-      <div className="shrink">
-        <Logo/>
-        <p1>Loading... Please Wait</p1>
+        <div className="shrink">
+          <Logo/>
+          <p1>Loading... Please Wait</p1>
+        </div>
+
       </div>
-
-  </div>
-  )
-}
-  render() {return (
-    <div>
-      {this.state.start === "loading..."
-        ? this.renderStart()
-          :this.renderPage()}
-    </div>
-  )
-}
+    )
+  }
+  render() {
+    return (
+      <div>
+        {this.state.start === "loading..."
+          ? this.renderStart()
+          : this.renderPage()}
+      </div>
+    )
+  }
 };
 
 module.exports = Main;
