@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom'
 
-import NeighbourhoodPrices from 'NeighbourhoodPrices'
-import NeighbourhoodReviews from 'NeighbourhoodReviews'
+import NeighborhoodPrices from 'NeighborhoodPrices'
+import NeighborhoodReviews from 'NeighborhoodReviews'
 import AllReviews from 'AllReviews'
 import PropertyChart from 'PropertyChart'
 
@@ -14,11 +14,11 @@ class DataGraphs extends React.Component {
 
   }
   //renders all visulations
-  renderNeighbourhoodReviews = () => {
-    return (<NeighbourhoodReviews data={this.props.data}/>)
+  renderNeighborhoodReviews = () => {
+    return (<NeighborhoodReviews data={this.props.data}/>)
   }
-  renderNeighbourhoodPrices = () => {
-    return (<NeighbourhoodPrices data={this.props.data}/>)
+  renderNeighborhoodPrices = () => {
+    return (<NeighborhoodPrices data={this.props.data}/>)
   }
   renderAllReviews = () => {
     return (<AllReviews data={this.props.data}/>)
@@ -43,13 +43,13 @@ class DataGraphs extends React.Component {
             <div className="callout">
               <h3 className="center">Average price per night for each neighbourhood in San Francisco</h3>
               <p className="center">Click on graph to show data</p>
-              {this.renderNeighbourhoodPrices()}</div>
+              {this.renderNeighborhoodPrices()}</div>
           </div>
           <div className="cell">
             <div className="callout">
               <h3 className="center">Average overall rating for each neighbourhood in San Francisco</h3>
               <p className="center">Click on graph to show data</p>
-              {this.renderNeighbourhoodReviews()}</div>
+              {this.renderNeighborhoodReviews()}</div>
           </div>
           <div className="cell">
             <div className="callout">

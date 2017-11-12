@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {LineChart} from 'react-easy-chart';
 import ReactTooltip from 'react-tooltip'
 
-export class NeighbourhoodReviews extends React.Component {
+export class NeighborhoodReviews extends React.Component {
   constructor(props) {
     super(props);
     const initialWidth = window.innerWidth > 0 ? window.innerWidth : 500;
@@ -448,4 +448,4 @@ export class NeighbourhoodReviews extends React.Component {
   }
 }
 
-module.exports = NeighbourhoodReviews;
+module.exports = NeighborhoodReviews;
