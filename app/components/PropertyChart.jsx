@@ -91,6 +91,7 @@ export class PropertyChart extends React.Component {
           <div>
           </div>
           <div className = "cell small-4 centerRight">
+               {this.renderHover()}
           <PieChart   innerHoleSize={200} size={450} data={[
       {
         key: 'House',
@@ -118,7 +119,6 @@ export class PropertyChart extends React.Component {
     clickHandler={this.clickHandler.bind(this)}
   />
   </div>
-     {this.renderHover()}
 </div>
   )
   }
