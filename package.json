@@ -6,7 +6,7 @@
   "scripts": {
     "test": "",
     "start": "node server.js",
-    "heroku-postbuild": "npm run build",
+    "postinstall": "npm run build",
     "build": "webpack"
   },
   "author": "Jacob Yang",
