@@ -35,3 +35,8 @@ app.use(express.static('public'));
 app.listen(PORT, function() {
   console.log('Express server is up on port ' + PORT);
 });
+
+var http = require("http");
+setInterval(function() {
+    http.get("http://capitalone-jacob-yang.herokuapp.com/");
+}, 300000); // every 5 minutes (300000)
